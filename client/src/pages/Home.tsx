@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { createDeckController } from "../api/controllers";
 
 export const Home = () => {
    const [title, setTitle] = useState("");
-   function createDeck(e: React.FormEvent){
+   async function createDeck(e: React.FormEvent){
       e.preventDefault()
-      console.log(title)
+      await createDeckController(title)
    }
   return (
     <div className="flex justify-center py-5">
